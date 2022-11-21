@@ -1,0 +1,25 @@
+FROM debian:sid
+
+LABEL \
+  org.label-schema.name="containerd-bench-security" \
+  org.label-schema.url="https://github.com/bekefi-laszlo/containerd-bench-security" \
+  org.label-schema.vcs-url="https://github.com/bekefi-laszlo/containerd-bench-security.git"
+
+RUN \
+    apt-get update && \
+    apt-get -y upgrade && \
+    apt-get -y install auditd ca-certificates crictl \
+      gawk iproute2 procps --no-install-recommends && \
+    apt-get -y clean && \
+    apt-get -y autoremove && \
+    rm -rf /var/lib/apt/lists/* \
+      /usr/share/doc /usr/share/doc-base \
+      /usr/share/man /usr/share/locale /usr/share/zoneinfo
+
+RUN mkdir /containerd-bench-security
+
+COPY . /containerd-bench-security
+
+WORKDIR /containerd-bench-security
+
+ENTRYPOINT ["/bin/sh", "docker-bench-security.sh"]

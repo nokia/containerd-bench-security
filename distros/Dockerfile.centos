@@ -1,0 +1,13 @@
+# REPOSITORY https://github.com/bekefi-laszlo/containerd-bench-security
+
+FROM centos
+
+RUN yum install -y crictl iproute audit; yum clean all
+
+RUN mkdir /containerd-bench-security
+
+COPY . /containerd-bench-security
+
+WORKDIR /containerd-bench-security
+
+ENTRYPOINT ["/bin/sh", "containerd-bench-security.sh"]

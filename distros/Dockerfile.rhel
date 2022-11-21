@@ -1,0 +1,16 @@
+# REPOSITORY https://github.com/bekefi-laszlo/containerd-bench-security
+
+FROM rhel7
+
+RUN yum install -y yum-utils; yum clean all
+RUN yum-config-manager --disable "*" &>/dev/null
+RUN yum-config-manager --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms
+RUN yum install -y crictl iproute audit; yum clean all
+
+RUN mkdir /containerd-bench-security
+
+COPY . /containerd-bench-security
+
+WORKDIR /containerd-bench-security
+
+ENTRYPOINT ["/bin/sh", "containerd-bench-security.sh"]

@@ -1,0 +1,21 @@
+containerd-bench-security:
+    # use image if you have a dedicated build step:
+    #   docker build --rm -t containerd-bench-security .
+    # image: docker-bench-security
+
+    # use build path to Dockerfile if docker-compose should build the image
+    build: .
+
+    cap_add:
+        - audit_control
+    labels:
+        - containerd_bench_security
+    net: host
+    pid: host
+    stdin_open: true
+    tty: true
+    volumes:
+        - /var/lib:/var/lib:ro
+        - /var/run/containerd.sock:/var/run/containerd.sock:ro
+        - /usr/lib/systemd:/usr/lib/systemd:ro
+        - /etc:/etc:ro
