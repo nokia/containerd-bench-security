@@ -1,3 +1,7 @@
+# Copyright 2022 Nokia
+# Licensed under the Apache License 2.0.
+# SPDX-License-Identifier: Apache-2.0
+
 containerd-bench-security:
     # use image if you have a dedicated build step:
     #   docker build --rm -t containerd-bench-security .

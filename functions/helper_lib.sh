@@ -1,4 +1,8 @@
 #!/bin/bash
+# Copyright 2022 Nokia
+# Licensed under the Apache License 2.0.
+# SPDX-License-Identifier: Apache-2.0
+
 
 # Returns the absolute path of a given string
 abspath () { case "$1" in /*)printf "%s\n" "$1";; *)printf "%s\n" "$PWD/$1";; esac; }
