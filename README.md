@@ -20,9 +20,9 @@ sudo sh containerd-bench-security.sh
 
 ### Run as container
 
-We provide a Dockerfile to build containerd bench as a small container for your convenience. Note that this container is being run with a *lot* of privilege -- sharing the host's filesystem, pid and network namespaces, due to portions of the benchmark applying to the running host.
+We provide a Dockerfile to build Containerd Bench for Security as a small container for your convenience. Note that this container is being run with a *lot* of privilege -- sharing the host's filesystem, pid and network namespaces, due to portions of the benchmark applying to the running host.
 
-First you will need to build the container based on the (descriptions)[#building-docker-image] and then run it. 
+First you will need to build the container based on the [descriptions](#building-docker-image) and then run it. 
 
 ```sh
 TODO: Add run instructions.
@@ -88,3 +88,11 @@ git clone https://github.com/nokia/containerd-bench-security.git
 cd containerd-bench-security
 docker-compose run --rm containerd-bench-security
 ```
+
+## Contribute
+
+We are happy to receive user feedback as GitHub issues and contributions as GitHub PR-s. Detailed thechincal instructions are in the [contributor guide](CONTRIBUTING.md).
+
+## License
+
+Containerd Bench for Security is licensed under the [Apache License Version 2.0](LICENSE.md).
