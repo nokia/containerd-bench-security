@@ -4,7 +4,7 @@
 
 The Containerd Bench for Security is a script that checks for dozens of common best-practices around deploying containers with containerd in production. The tests are all automated, and are based on the [CIS Docker Benchmark v1.3.1](https://www.cisecurity.org/benchmark/docker/).
 
-We are making this available as an open-source utility so the Docker community can have an easy way to self-assess their hosts and containers against this benchmark.
+We are making this available as an open source utility so the user community of Containerd can have an easy way to self-assess their hosts and containers against this benchmark.
 
 ## Running Containerd Bench for Security
 
@@ -13,20 +13,20 @@ We are making this available as an open-source utility so the Docker community c
 You can simply run this script from your base host by running:
 
 ```sh
-git clone https://github.com/bekefi-laszlo/containerd-bench-security.git
+git clone https://github.com/nokia/containerd-bench-security.git
 cd containerd-security
 sudo sh containerd-bench-security.sh
 ```
 
 ### Run as container
 
-We packaged containerd bench as a small container for your convenience. Note that this container is being run with a *lot* of privilege -- sharing the host's filesystem, pid and network namespaces, due to portions of the benchmark applying to the running host.
+We provide a Dockerfile to build Containerd Bench for Security as a small container for your convenience. Note that this container is being run with a *lot* of privilege -- sharing the host's filesystem, pid and network namespaces, due to portions of the benchmark applying to the running host.
 
-The easiest way to run your hosts against the Containerd Bench for Security is by running our pre-built container:
+First you will need to build the container based on the [descriptions](#building-docker-image) and then run it. 
 
 ```sh
-
-##### This part needs to be updated ######
+TODO: Add run instructions.
+```
 
 ### Note
 
@@ -74,7 +74,7 @@ You have two options if you wish to build and run this container yourself:
 1. Use Docker Build: (**`Note: it requires docker to be installed!`**)
 
 ```sh
-git clone https://github.com/bekefi-laszlo/containerd-bench-security.git
+git clone https://github.com/nokia/containerd-bench-security.git
 cd containerd-bench-security
 docker build --no-cache -t containerd-bench-security .
 ```
@@ -84,7 +84,15 @@ Followed by an appropriate `run` command as stated above.
 2. Use Docker Compose:
 
 ```sh
-git clone https://github.com/bekefi-laszlo/containerd-bench-security.git
+git clone https://github.com/nokia/containerd-bench-security.git
 cd containerd-bench-security
 docker-compose run --rm containerd-bench-security
 ```
+
+## Contribute
+
+We are happy to receive user feedback as GitHub issues and contributions as GitHub PR-s. Detailed thechincal instructions are in the [contributor guide](CONTRIBUTING.md).
+
+## License
+
+Containerd Bench for Security is licensed under the [Apache License Version 2.0](LICENSE.md).
