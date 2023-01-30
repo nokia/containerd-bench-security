@@ -57,8 +57,8 @@ Example:
       sh containerd-bench-security.sh -c check_2_2
   - Run all available checks except the host_configuration group and "2.8 - Enable user namespace support":
       sh containerd-bench-security.sh -e host_configuration,check_2_8
-  - Run just the container_images checks except "4.5 - Ensure Content trust for Docker is Enabled":
-      sh containerd-bench-security.sh -c container_images -e check_4_5
+  - Run just the container_images checks except "4.4 - Ensure images are scanned and rebuilt to include security patches (Manual - not scored)":
+      sh containerd-bench-security.sh -c container_images -e check_4_4
 
 Options:
   -b           optional  Do not print colors
@@ -120,8 +120,6 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Total Score
-# Warn Scored -1 if warn -s option used in testcase, otherwise not scored, Pass Scored +1, Not Score -0
-
 # totalChecks = total number of testcases
 # scoredChecks = total number of testcases (including manual ones) which are to be taken into account for score calculations
 # currentScore = nr of automated passed testcases
