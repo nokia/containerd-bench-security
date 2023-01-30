@@ -296,8 +296,6 @@ check_5_9() {
   local remediationImpact="None."
   local check="$id - $desc"
   starttestjson "$id" "$desc"
-
-  logcheckresult "WARN" "Containers running with networking mode 'host'"
   note -c "$check"
   logcheckresult "NOTE"
 }
