@@ -121,7 +121,7 @@ beginjson () {
 }
 
 endjson (){
-  printf "\n  ],\n  \"all_checks\": %s,\n  \"scored_checks\": %s,\n  \"score\": %s,\n  \"end\": %s\n}" "$1" "$2" "$3" "$4"| tee -a "$logger.json" 2>/dev/null 1>&2
+  printf "\n  ],\n  \"all_checks\": %s,\n  \"scored_checks\": %s,\n  \"score\": %s,\n  \"end\": %s\n}\n" "$1" "$2" "$3" "$4"| tee -a "$logger.json" 2>/dev/null 1>&2
 }
 
 logjson (){
