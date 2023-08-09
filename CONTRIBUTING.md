@@ -15,7 +15,7 @@ You can build the container that wraps the containerd-bench for security:
 
 ```sh
 git clone https://scm.cci.nokia.net/bekefi/containerd-security.git
-cd containerd-bench-security
+cd containerd-security
 docker build -t containerd-bench-security .
 ```
 
@@ -23,7 +23,7 @@ Or you can simply run the shell script locally:
 
 ```sh
 git clone https://scm.cci.nokia.net/bekefi/containerd-security
-cd containerd-bench-security
+cd containerd-security
 sudo sh containerd-bench-security.sh
 ```
 
