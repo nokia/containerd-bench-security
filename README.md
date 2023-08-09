@@ -14,7 +14,7 @@ You can simply run this script from your base host by running:
 
 ```sh
 git clone https://github.com/nokia/containerd-bench-security.git
-cd containerd-security
+cd containerd-bench-security
 sudo sh containerd-bench-security.sh
 ```
 
