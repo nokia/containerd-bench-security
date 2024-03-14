@@ -32,7 +32,16 @@ req_programs 'awk grep stat tee tail wc xargs truncate sed crictl'
 
 # set up containerd runtime endpoint
 get_containerd_configuration_file
+# Option 1: Retrieve socket from config file if available
 socket=$(cat "$CONFIG_FILE" | grep "\[grpc\]" -A10 | sed 's/.*://g' | tr -d '" ' | grep '^address'| awk -F= '{print $2}')
+# Option 2: If config file doesn't provide the socket, retrieve it from containerd config dump
+if [ -z "$socket" ]; then
+        socket=$(containerd config dump | grep -i 'address' | grep sock | awk -F' ' '{print $3}' | tr -d '"')
+else
+  printf "Can't retrieve containerd's socket address\n"
+  exit 1
+fi
+
 export CONTAINER_RUNTIME_ENDPOINT="unix://$socket"
 
 # Ensure crictl works
